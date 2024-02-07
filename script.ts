@@ -26,8 +26,8 @@ const main = (inputUser: number, zoom: number): void => {
 
 			ctx.fillStyle = color
 
-			for (let i: k = 0; i < inputUser; i++) {
-				for (let j: r = 0; j < 113; j++) {
+			for (let k:  number = 0; k < inputUser; k++) {
+				for (let r: number = 0; r < 113; r++) {
 					n = 710*k + r
 					const coordinates: [number, number] = polarToCartesian(n, n)
 					const x: number = coordinates[0] * (zoom / inputUser) + window.innerWidth / 2

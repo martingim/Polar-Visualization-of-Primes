@@ -14,22 +14,9 @@ function polarToCartesian(r: number, a: number): [number, number] {
 	return [x, y]
 }
 
-function isPrime(number: number): boolean {
-	if (number < 2) {
-		return false
-	}
-	for (let i: number = 2; i <= Math.sqrt(number); i++) {
-		if (number % i === 0) {
-			return false
-		}
-	}
-	numberOfPrimes++
-	return true
-}
-
 const main = (inputUser: number, zoom: number): void => {
 	const canvas = document.getElementById('primeCanvas') as HTMLCanvasElement | null
-
+	let n: number = 0
 	if (canvas) {
 		const ctx: CanvasRenderingContext2D | null = canvas.getContext('2d')
 
@@ -39,12 +26,13 @@ const main = (inputUser: number, zoom: number): void => {
 
 			ctx.fillStyle = color
 
-			for (let i: number = 0; i < inputUser; i++) {
-				if (isPrime(i)) {
-					const coordinates: [number, number] = polarToCartesian(i, i)
+			for (let i: k = 0; i < inputUser; i++) {
+				for (let j: r = 0; j < 113; j++) {
+					n = 710*k + r
+					const coordinates: [number, number] = polarToCartesian(n, n)
 					const x: number = coordinates[0] * (zoom / inputUser) + window.innerWidth / 2
 					const y: number = coordinates[1] * (zoom / inputUser) + window.innerHeight / 2
-
+	
 					ctx.fillRect(x, y, 1, 1) // Draw a pixel
 				}
 			}
